@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { FetureComponent } from './feture.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -13,11 +15,16 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     HomeComponent,
     ProductsComponent,
     CartComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    FetureComponent
   ],
   imports: [
     CommonModule,
-    FetureRoutingModule
+    FetureRoutingModule,
+    SharedModule
+  ],
+  exports:[
+    FetureComponent
   ]
 })
 export class FetureModule { }

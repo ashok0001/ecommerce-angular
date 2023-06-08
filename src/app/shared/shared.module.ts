@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
-import { ProductCardComponent } from './product-card/product-card.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+
 
 
 
@@ -14,6 +15,11 @@ import { ProductCardComponent } from './product-card/product-card.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports:[
+    NavbarComponent,
+    FooterComponent,
+    ProductCardComponent
   ]
 })
 export class SharedModule { }
