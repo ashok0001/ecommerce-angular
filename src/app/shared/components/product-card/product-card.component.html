@@ -1,18 +1,18 @@
-<div  class='productCard w-[15rem] border m-3 transition-all cursor-pointer '>
+<div  class='productCard w-[17rem] m-3 transition-all cursor-pointer '>
     <div class='h-[20rem]'>
-        <img class='h-full w-full object-cover object-left-top' src='https://ik.imagekit.io/wb2spwtue/kreeva/tr:h-430,w-315,q-80,cm-pad_resize/media/catalog/product/l/e/lehenga-choli_173_1.jpg' alt="" />
+        <img class='h-full w-full object-cover object-left-top' [src]='product.image' alt="" />
     </div>
-    <div class='textPart bg-white p-3 '>
+    <div class='textPart  p-3 bg-[#0b0b0b] rounded-b-md'>
         <div>
-            <p class='font-bold opacity-60'>Beige Georgette Umbrella Lehenga</p>
-        <p  class=''>brand</p>
-        <p class='font-semibold opacity-50'>Green</p>
+            <p class=' opacity-80'>{{product.title}}</p>
+        <p  class=''>{{product.title2}}</p>
+        <p class='font-semibold opacity-50'>{{product.color}}</p>
         </div>
         
         <div class='flex space-x-2 items-center'>
-            <p class='font-semibold'>₹4500</p>
-            <p class='opacity-50 line-through'>₹7999</p>
-            <p class='text-green-600 font-semibold'>40% off</p>
+            <p class='font-semibold'>{{product.selling_price}}</p>
+            <p class='opacity-50 line-through'>{{product.price}}</p>
+            <p class='text-green-600 font-semibold'>{{product.disscount}}</p>
         </div>
         
     </div>

@@ -11,7 +11,8 @@ import { SharedModule } from '../shared/shared.module';
 import { MainCarouselComponent } from './home/main-carousel/main-carousel.component';
 import { ProductCardSliderComponent } from './home/product-card-slider/product-card-slider.component';
 import { SliderProductCardComponent } from './home/slider-product-card/slider-product-card.component';
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { SliderProductCardComponent } from './home/slider-product-card/slider-pr
     CommonModule,
     FetureRoutingModule,
     SharedModule,
-    // MatButtonModule, MatMenuModule
+    MatButtonModule, MatMenuModule
   ],
   exports:[
     FetureComponent

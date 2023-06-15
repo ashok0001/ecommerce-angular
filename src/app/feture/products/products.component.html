@@ -1,4 +1,4 @@
-<div class="bg-white">
+<div class="">
   <div>
     <!-- mobile -->
     <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
@@ -6,13 +6,13 @@
 
       <div class="fixed inset-0 z-40 flex">
         <div
-          class="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl"
+          class="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto  py-4 pb-12 shadow-xl"
         >
           <div class="flex items-center justify-between px-4">
-            <h2 class="text-lg font-medium text-gray-900">Filters</h2>
+            <h2 class="text-lg font-medium text-white">Filters</h2>
             <button
               type="button"
-              class="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
+              class="-mr-2 flex h-10 w-10 items-center justify-center rounded-md p-2 text-gray-400"
             >
               <span class="sr-only">Close menu</span>
               <svg
@@ -35,7 +35,7 @@
           <!-- Filters -->
           <form class="mt-4 border-t border-gray-200">
             <h3 class="sr-only">Categories</h3>
-            <ul role="list" class="px-2 py-3 font-medium text-gray-900">
+            <ul role="list" class="px-2 py-3 font-medium text-white">
               <li>
                 <a href="#" class="block px-2 py-3">Totes</a>
               </li>
@@ -58,11 +58,11 @@
                 <!-- Expand/collapse section button -->
                 <button
                   type="button"
-                  class="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500"
+                  class="flex w-full items-center justify-between  px-2 py-3 text-gray-400 hover:text-gray-500"
                   aria-controls="filter-section-mobile-0"
                   aria-expanded="false"
                 >
-                  <span class="font-medium text-gray-900">Color</span>
+                  <span class="font-medium text-white">Color</span>
                   <span class="ml-6 flex items-center">
                     <!-- Expand icon, show/hide based on section open state. -->
                     <svg
@@ -187,11 +187,11 @@
                 <!-- Expand/collapse section button -->
                 <button
                   type="button"
-                  class="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500"
+                  class="flex w-full items-center justify-between  px-2 py-3 text-gray-400 hover:text-gray-500"
                   aria-controls="filter-section-mobile-1"
                   aria-expanded="false"
                 >
-                  <span class="font-medium text-gray-900">Category</span>
+                  <span class="font-medium text-white">Category</span>
                   <span class="ml-6 flex items-center">
                     <!-- Expand icon, show/hide based on section open state. -->
                     <svg
@@ -302,11 +302,11 @@
                 <!-- Expand/collapse section button -->
                 <button
                   type="button"
-                  class="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500"
+                  class="flex w-full items-center justify-between  px-2 py-3 text-gray-400 hover:text-gray-500"
                   aria-controls="filter-section-mobile-2"
                   aria-expanded="false"
                 >
-                  <span class="font-medium text-gray-900">Size</span>
+                  <span class="font-medium text-white">Size</span>
                   <span class="ml-6 flex items-center">
                     <!-- Expand icon, show/hide based on section open state. -->
                     <svg
@@ -438,7 +438,7 @@
         <div
         class="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24"
       >
-        <h1 class="text-4xl font-bold tracking-tight text-gray-900">
+        <h1 class="text-4xl font-bold tracking-tight text-white">
           Products
         </h1>
 
@@ -446,80 +446,15 @@
         <div class="flex items-center">
           <div class="relative inline-block text-left">
             <div>
-              <button
-                type="button"
-                class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900"
-                id="menu-button"
-                aria-expanded="false"
-                aria-haspopup="true"
-              >
-                Sort
-                <svg
-                  class="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </button>
-              
+             
+              <button mat-button [matMenuTriggerFor]="menu" class="">Sort  </button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
             </div>
 
-            <div
-              class="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none"
-              role="menu"
-              aria-orientation="vertical"
-              aria-labelledby="menu-button"
-              tabindex="-1"
-            >
-              <div class="py-1" role="none">
-                <a
-                  href="#"
-                  class="font-medium text-gray-900 block px-4 py-2 text-sm"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-0"
-                  >Most Popular</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 block px-4 py-2 text-sm"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-1"
-                  >Best Rating</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 block px-4 py-2 text-sm"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-2"
-                  >Newest</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 block px-4 py-2 text-sm"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-3"
-                  >Price: Low to High</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 block px-4 py-2 text-sm"
-                  role="menuitem"
-                  tabindex="-1"
-                  id="menu-item-4"
-                  >Price: High to Low</a
-                >
-              </div>
-            </div>
+           
           </div>
 
           <button
@@ -573,11 +508,11 @@
                 <!-- Expand/collapse section button -->
                 <button
                   type="button"
-                  class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500"
+                  class="flex w-full items-center justify-between  py-3 text-sm text-gray-400 hover:text-gray-500"
                   aria-controls="filter-section-0"
                   aria-expanded="false"
                 >
-                  <span class="font-medium text-gray-900">Color</span>
+                  <span class="font-medium text-white">Color</span>
                   
                 </button>
               </h3>
@@ -677,11 +612,11 @@
                 <!-- Expand/collapse section button -->
                 <button
                   type="button"
-                  class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500"
+                  class="flex w-full items-center justify-between py-3 text-sm text-gray-400 hover:text-gray-500"
                   aria-controls="filter-section-1"
                   aria-expanded="false"
                 >
-                  <span class="font-medium text-gray-900">Category</span>
+                  <span class="font-medium text-white">Category</span>
                  
                 </button>
               </h3>
@@ -767,11 +702,11 @@
                 <!-- Expand/collapse section button -->
                 <button
                   type="button"
-                  class="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500"
+                  class="flex w-full items-center justify-between  py-3 text-sm text-gray-400 hover:text-gray-500"
                   aria-controls="filter-section-2"
                   aria-expanded="false"
                 >
-                  <span class="font-medium text-gray-900">Size</span>
+                  <span class="font-medium text-white">Size</span>
                  
                 </button>
               </h3>
@@ -870,7 +805,12 @@
 
           <!-- Product grid -->
           <div class="lg:col-span-3">
-            <!-- Your content -->
+            <div class="flex flex-wrap justify-evenly">
+                 <div *ngFor="let item of products">
+                <app-product-card [product]="item"/>
+            </div>
+            </div>
+           
           </div>
         </div>
       </section>
