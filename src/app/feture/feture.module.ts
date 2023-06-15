@@ -27,7 +27,8 @@ import { SliderProductCardComponent } from './home/slider-product-card/slider-pr
   imports: [
     CommonModule,
     FetureRoutingModule,
-    SharedModule
+    SharedModule,
+    // MatButtonModule, MatMenuModule
   ],
   exports:[
     FetureComponent
