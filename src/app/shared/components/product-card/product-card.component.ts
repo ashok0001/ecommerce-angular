@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class ProductCardComponent {
 
+  products = [1, 1, 1, 1, 1];
+
+
 }

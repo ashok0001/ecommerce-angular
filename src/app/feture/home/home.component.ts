@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { productdata } from 'src/productsData';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+
+  products:any[]=[]
+
+  constructor() {
+    this.products = productdata.slice(0, 5);
+  }
 
 }

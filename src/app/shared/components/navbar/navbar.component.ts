@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  isProfileMenuOpen:boolean =false;
+
+  handleProfileMenuOpen(){
+    this.isProfileMenuOpen=!this.isProfileMenuOpen;
+    console.log("handle profile menu -------- ")
+  }
+
+  handleProfileMenuClose(){
+    this.isProfileMenuOpen=false;
+  }
+
 }
