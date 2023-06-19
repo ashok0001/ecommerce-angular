@@ -11,8 +11,15 @@ import { SharedModule } from '../shared/shared.module';
 import { MainCarouselComponent } from './home/main-carousel/main-carousel.component';
 import { ProductCardSliderComponent } from './home/product-card-slider/product-card-slider.component';
 import { SliderProductCardComponent } from './home/slider-product-card/slider-product-card.component';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatButtonModule} from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatIconModule } from '@angular/material/icon';
+import { ProductReviewCardComponent } from './product-details/product-review-card/product-review-card.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { BarRatingModule } from 'ngx-bar-rating';
+// import {Ngtemp}
 
 @NgModule({
   declarations: [
@@ -23,16 +30,21 @@ import {MatButtonModule} from '@angular/material/button';
     FetureComponent,
     MainCarouselComponent,
     ProductCardSliderComponent,
-    SliderProductCardComponent
+    SliderProductCardComponent,
+    ProductReviewCardComponent,
   ],
   imports: [
     CommonModule,
     FetureRoutingModule,
     SharedModule,
-    MatButtonModule, MatMenuModule
+    MatButtonModule,
+    MatMenuModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatIconModule,
+    MatProgressBarModule,
+    BarRatingModule
   ],
-  exports:[
-    FetureComponent
-  ]
+  exports: [FetureComponent],
 })
-export class FetureModule { }
+export class FetureModule {}
