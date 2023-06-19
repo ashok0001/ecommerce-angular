@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { MatIconModule } from '@angular/material/icon';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
 
 
 
@@ -13,7 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
     NavbarComponent,
     FooterComponent,
     ProductCardComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    CartItemComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { MatIconModule } from '@angular/material/icon';
     NavbarComponent,
     FooterComponent,
     ProductCardComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    CartItemComponent
   ]
 })
 export class SharedModule { }

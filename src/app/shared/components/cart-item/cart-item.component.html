@@ -1,0 +1,59 @@
+<div class="p-5 shadow-lg border-b border-gray-900">
+    <div class="flex items-center">
+      <div class="w-[5rem] h-[5rem] lg:w-[9rem] lg:h-[9rem]">
+        <img
+          class="w-full h-full object-cover object-top"
+          src="https://ik.imagekit.io/wb2spwtue/kreeva/tr:h-1100,w-800,q-80,cm-pad_resize/media/catalog/product/l/e/lehenga-choli_1001_a_1.jpg"
+          alt=""
+        />
+      </div>
+      <div class="ml-5 space-y-1">
+        <p class="font-semibold">Heavy Sequins Bell Sleeves Teal Blue Lehenga</p>
+        <p class="opacity-70">Size: Free, White</p>
+        <p class="opacity-70 mt-2">Seller: Be the first to review this product</p>
+        <div class="flex space-x-2 items-center pt-3">
+          <p class="opacity-50 line-through">₹6999</p>
+          <p class="font-semibold text-lg">
+            ₹4999
+          </p>
+          <p class="text-green-600 font-semibold">
+            40% off
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Buttons section -->
+    <!-- Assuming 'showButton' is a boolean variable -->
+    <!-- Replace 'handleUpdateCartItem' and 'handleRemoveItemFromCart' with appropriate event handlers -->
+    <!-- Replace 'IconButton' and 'Button' components with appropriate button elements -->
+    <!-- Example: -->
+    <!-- <button onclick="handleUpdateCartItem(-1)" disabled={item?.quantity<=1} class="IconButton" aria-label="decrement quantity">
+         <RemoveCircleOutlineIcon />
+       </button>
+       <span class="py-1 px-7 border rounded-sm">{item?.quantity}</span>
+       <button onclick="handleUpdateCartItem(1)" class="IconButton" aria-label="increment quantity">
+         <AddCircleOutlineIcon />
+       </button>
+       <button onclick="handleRemoveItemFromCart()" class="Button" variant="text">
+         Remove
+       </button> -->
+    <!-- End of Buttons section -->
+    
+    <!-- Show buttons conditionally -->
+    <div class="lg:flex items-center lg:space-x-10 pt-4">
+      <div class="flex items-center space-x-2">
+        <!-- Decrement quantity button -->
+        
+        <div class="example-button-container">
+            <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                <mat-icon>remove</mat-icon>
+            </button>
+          </div>
+        <!-- Quantity display -->
+        <span class="py-1 px-7 border rounded-sm">2</span>
+  
+        <!-- Increment quantity button -->
+            <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+                <mat-icon>add</mat-icon>
+            </button>
