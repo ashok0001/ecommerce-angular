@@ -6,6 +6,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { MatIconModule } from '@angular/material/icon';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 
@@ -19,7 +20,8 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
   ],
   imports: [
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    MatDividerModule
   ],
   exports:[
     NavbarComponent,
