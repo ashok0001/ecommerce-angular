@@ -1,0 +1,40 @@
+<div class="px-2 lg:px-36">
+    <!-- <div class="flex flex-col justify-center items-center">
+      <mat-card class="mb-6" color="primary">
+        <mat-card-title>Payment Success</mat-card-title>
+        <mat-card-content>Congratulations! Your order has been placed.</mat-card-content>
+      </mat-card>
+    </div> -->
+  
+    <!-- <app-order-tracker [activeStep]="1"></app-order-tracker> -->
+    <app-order-tracker  [activeStep]="activeStep"/>
+  
+    <div class="space-y-5 py-5 pt-20">
+      <ng-container >
+        <div class="rounded-md p-5 flex items-center justify-between box">
+          <div class="flex items-center">
+            <img class="w-20 h-20 object-cover object-top" src="https://cdn.shopify.com/s/files/1/0049/3649/9315/files/koskii-navyblue-swarovski-georgette-designer-saree-saus0029902_navyblue_7_large.jpg?v=1683177615" />
+            <div class="ml-5 space-y-2">
+              <p class="text-lg font-semibold">
+                Wine Swarovski Chiffon Saree</p>
+              <p class="opacity-50 text-xs font-semibold space-x-5">
+                <span>Color: pink</span>
+                <span>Size: M</span>
+              </p>
+              <p>Seller: Wine Swarovski Chiffon Saree</p>
+              <p>₹9999 </p>
+            </div>
+          </div>
+          <div>
+            <mat-divider [vertical]="false"></mat-divider>
+          </div>
+          <div class="">
+            <app-adress-card />
+          </div>
+          <!-- <app-address-card [address]="order?.order?.shippingAddress"></app-address-card> -->
+        </div>
+      </ng-container>
+     
+    </div>
+  </div>
+  

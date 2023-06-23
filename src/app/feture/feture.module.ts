@@ -18,7 +18,16 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
 import { ProductReviewCardComponent } from './product-details/product-review-card/product-review-card.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { BarRatingModule } from 'ngx-bar-rating';
+import {MatDividerModule} from '@angular/material/divider';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { AdressFormComponent } from './checkout/adress-form/adress-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PaymentComponent } from './payment/payment.component';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+
 // import {Ngtemp}
 
 @NgModule({
@@ -32,6 +41,10 @@ import { BarRatingModule } from 'ngx-bar-rating';
     ProductCardSliderComponent,
     SliderProductCardComponent,
     ProductReviewCardComponent,
+    CheckoutComponent,
+    AdressFormComponent,
+    PaymentComponent,
+    PaymentSuccessComponent,
   ],
   imports: [
     CommonModule,
@@ -43,7 +56,11 @@ import { BarRatingModule } from 'ngx-bar-rating';
     MatRadioModule,
     MatIconModule,
     MatProgressBarModule,
-    BarRatingModule
+    BarRatingModule,
+    MatDividerModule,
+    MatFormFieldModule, 
+    MatInputModule,
+    ReactiveFormsModule
   ],
   exports: [FetureComponent],
 })

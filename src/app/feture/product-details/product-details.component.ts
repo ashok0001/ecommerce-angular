@@ -10,6 +10,7 @@ import { productdata } from 'src/productsData';
 export class ProductDetailsComponent {
 
   relatedProducts:any
+  reviews=[1,1,1]
 
   constructor(private router:Router){
     this.relatedProducts=productdata;

@@ -7,6 +7,8 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
 import { MatIconModule } from '@angular/material/icon';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import {MatDividerModule} from '@angular/material/divider';
+import { AdressCardComponent } from './components/adress-card/adress-card.component';
+import { OrderTrackerComponent } from './components/order-tracker/order-tracker.component';
 
 
 
@@ -16,7 +18,9 @@ import {MatDividerModule} from '@angular/material/divider';
     FooterComponent,
     ProductCardComponent,
     StarRatingComponent,
-    CartItemComponent
+    CartItemComponent,
+    AdressCardComponent,
+    OrderTrackerComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +32,9 @@ import {MatDividerModule} from '@angular/material/divider';
     FooterComponent,
     ProductCardComponent,
     StarRatingComponent,
-    CartItemComponent
+    CartItemComponent,
+    AdressCardComponent,
+    OrderTrackerComponent,
   ]
 })
 export class SharedModule { }
