@@ -9,6 +9,8 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { AdressCardComponent } from './components/adress-card/adress-card.component';
 import { OrderTrackerComponent } from './components/order-tracker/order-tracker.component';
+import { MatButtonModule } from '@angular/material/button';
+import { CapitalizePipe } from '../Pips/capitalize-pipe';
 
 
 
@@ -20,12 +22,14 @@ import { OrderTrackerComponent } from './components/order-tracker/order-tracker.
     StarRatingComponent,
     CartItemComponent,
     AdressCardComponent,
-    OrderTrackerComponent
+    OrderTrackerComponent,
+    CapitalizePipe
   ],
   imports: [
     CommonModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    MatButtonModule,
   ],
   exports:[
     NavbarComponent,

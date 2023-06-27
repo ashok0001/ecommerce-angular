@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 import {
   login,
@@ -10,6 +10,8 @@ import {
   registerFailure,
   registerSuccess
 } from './auth.actions';
+import { Store } from '@ngrx/store';
+import { getUserProfile } from '../User/Actions';
 
 @Injectable()
 export class AuthEffects {
@@ -19,7 +21,13 @@ export class AuthEffects {
     ofType(login),
     switchMap(({ email, password }) =>
       this.authService.login(email, password).pipe(
-        map((user) => loginSuccess({ user })),
+        
+        map((user:any) => { 
+          console.log("login res ", user)
+          localStorage.setItem("jwt",user.jwt)
+          this.dispatchUserProfileAction()
+          return loginSuccess({user})}
+          ),
         catchError(async (error) => loginFailure({ error }))
       )
     )
@@ -29,14 +37,24 @@ export class AuthEffects {
   register$ = createEffect(() =>
     this.actions$.pipe(
       ofType(register),
-      switchMap(({ email, password,firstName,lastName }) =>
-        this.authService.register(email, password,firstName,lastName).pipe(
-          map(() => registerSuccess()),
+      switchMap(({user}) =>
+       {
+        console.log("user switch ",user)
+        return this.authService.register(user).pipe(
+          tap(() => this.dispatchUserProfileAction()),
+          map((res) => {
+            console.log("register res ",res)
+            localStorage.setItem("jwt",res.jwt)
+            return registerSuccess()}),
           catchError(async(error) => registerFailure({ error }))
-        )
+        )}
       )
     )
   );
 
-  constructor(private actions$: Actions, private authService: AuthService) {}
+  constructor(private actions$: Actions, private authService: AuthService,private store:Store) {}
+
+  private dispatchUserProfileAction() {
+    this.store.dispatch(getUserProfile());
+  }
 }

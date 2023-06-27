@@ -12,9 +12,9 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string): Observable<User | null> {
-    const loginData = { username, password };
-    return this.http.post<User>(`${this.apiUrl}/login`, loginData).pipe(
+  login(email: string, password: string): Observable<User | null> {
+    const loginData = { email, password };
+    return this.http.post<User>(`${this.apiUrl}/signin`, loginData).pipe(
       catchError((error) => {
         console.error('Error logging in', error);
         return of(null);
@@ -22,9 +22,15 @@ export class AuthService {
     );
   }
 
-  register(firstName:string,lastName:string,username: string, password: string): Observable<any> {
-    const registerData = { username, password };
-    return this.http.post(`${this.apiUrl}/register`, registerData).pipe(
+  register(data:User): Observable<any> {
+    const registerData = { 
+      email:data.email, 
+      password:data.password,
+      firstName:data.firstName,
+      lastName:data.lastName 
+    };
+    console.log("registerr data ",registerData)
+    return this.http.post(`${this.apiUrl}/signup`, registerData).pipe(
       catchError((error) => {
         console.error('Error registering', error);
         return of(null);
