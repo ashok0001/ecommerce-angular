@@ -57,21 +57,25 @@ export class ProductService {
   }
 
   findProductById(productId: any): Observable<any> {
-    return this.http.get(`${this.API_BASE_URL}/api/products/id/${productId}`);
+    const headers = this.getHeaders();
+    return this.http.get(`${this.API_BASE_URL}/api/products/id/${productId}`,{headers});
   }
 
   createProduct(product: { data: any }): Observable<any> {
-    return this.http.post(`${this.API_BASE_URL}/api/admin/products/`, product.data);
+    const headers = this.getHeaders();
+    return this.http.post(`${this.API_BASE_URL}/api/admin/products/`, product.data,{headers});
   }
 
   updateProduct(product: { productId: any }): Observable<any> {
+    const headers = this.getHeaders();
     return this.http.put(
       `${this.API_BASE_URL}/api/admin/products/${product.productId}`,
-      product
+      product,{headers}
     );
   }
 
   deleteProduct(productId: any): Observable<any> {
-    return this.http.delete(`${this.API_BASE_URL}/api/admin/products/${productId}/delete`);
+    const headers = this.getHeaders();
+    return this.http.delete(`${this.API_BASE_URL}/api/admin/products/${productId}/delete`,{headers});
   }
 }

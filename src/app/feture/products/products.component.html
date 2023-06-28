@@ -571,8 +571,8 @@
           <!-- Product grid -->
           <div class="lg:col-span-3">
             <div class="flex flex-wrap justify-evenly">
-              <div *ngFor="let item of products">
-                <app-product-card (click)="nativateToProductDetailPage()" [product]="item" />
+              <div *ngFor="let item of fetchedProducts$ | async">
+                <app-product-card (click)="nativateToProductDetailPage(item.id)" [product]="item" />
               </div>
             </div>
           </div>

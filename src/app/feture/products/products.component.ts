@@ -68,10 +68,10 @@ export class ProductsComponent {
     console.log(this.store.select((state: AppState) => state.product))
   });
 
-  this.fetchedProducts$ = this.store.select((state: AppState) => state.product);
+  this.fetchedProducts$ = this.store.select((state: AppState) => state.product.products.content);
 
   this.fetchedProducts$.subscribe((products: any) => {
-    console.log("Products from store - ", products);
+    console.log("Products from store - ", products.content);
   });
   
   }
@@ -120,8 +120,8 @@ export class ProductsComponent {
     this.router.navigate([], { queryParams });
   }
 
-  nativateToProductDetailPage(){
-    this.router.navigate(['/product-details'])
+  nativateToProductDetailPage(id:string){
+    this.router.navigate([`/product-details/${id}`])
   }
 
   

@@ -1,23 +1,23 @@
-<div class="p-5 lg:p-10">
-  <p class="text-gray-500">product/clothes/women/saree</p>
+<div class="p-5 lg:p-10 mt-10">
+  <p class="text-gray-500 py-10">product/clothes/women/saree</p>
       
   <!-- Product Details -->
 
   <section class="lg:grid grid-cols-3 lg:gap-10 ">
         <div class="col-span-2 flex items-center flex-col">
-          <img class="w-[50%]" src="https://img.faballey.com/images/Product/ILL00110Z/d4.jpg" alt="">
+          <img class="w-[50%]" [src]="(productDetails$ | async)?.imageUrl" alt="">
           
         </div>
       
         <div class=" col-span-1 space-y-10 mt-10 lg:mt-0">
       <div class="space-y-2">
-        <p class="font-semibold text-gray-600 text-lg">CRAZE N WORLD</p>
-        <p class="text-xl ">Forest Green Foil Work Lehenga Set With Blouse And Dupatta</p>
+        <p class="font-semibold text-gray-600 text-lg">{{(productDetails$ | async)?.brand}}</p>
+        <p class="text-xl ">{{(productDetails$ | async).title}}</p>
       </div>
           <div class="flex items-center space-x-5">
-             <p class="text-lg">₹12500</p>
-             <p class="text-lg text-gray-700  line-through">₹2299</p>
-             <p class="text-green-400 font-semibold text-lg">76% off</p>
+             <p class="text-lg">₹{{ (productDetails$ | async).discountedPrice}}</p>
+             <p class="text-lg text-gray-700  line-through">₹{{(productDetails$ | async).price}}</p>
+             <p class="text-green-400 font-semibold text-lg">{{(productDetails$ | async).discountPersent}} off</p>
           </div>
          
 
@@ -41,7 +41,7 @@
 
           <div>
             <p class="text-gray-600">
-                Designed for comfort and style, our Lengha Cholis are tailored to perfection, ensuring a flattering fit for all body types. The choli (blouse) is meticulously crafted with unique patterns and cuts, while the lengha (skirt) drapes gracefully, adding an aura of grace to your ensemble.
+              {{ (productDetails$ | async).description}}
             </p>
             <p class="text-gray-600">
                 Indulge in the timeless beauty of Lengha Cholis for women and make a lasting impression with our exquisite designs. Experience the epitome of elegance and celebrate your femininity with our stunning collection.

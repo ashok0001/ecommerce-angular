@@ -42,7 +42,9 @@ export class ProductEffects {
       ofType(findProductByIdRequest),
       mergeMap(({ productId }) =>
         this.productService.findProductById(productId).pipe(
-          map((response) => findProductByIdSuccess({ payload: response })),
+          map((response) => {
+            console.log("product detail response ",response)
+            return findProductByIdSuccess({ payload: response })}),
           catchError((error) => of(findProductByIdFailure({ error })))
         )
       )
