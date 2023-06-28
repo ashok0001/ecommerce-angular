@@ -1,0 +1,14 @@
+<div class="w-full">
+    <div class="bg-white w-full h-1/2  shadow-lg p-6">
+
+        <div class="flex justify-around">
+<div *ngFor="let item of category.sections">
+    <h1>{{item.name}}</h1>
+    <p *ngFor="let section of item.items">{{section.name}} </p>
+</div>
+
+        </div>
+    
+    </div>
+  </div>
+  

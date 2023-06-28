@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, HostListener } from '@angular/core';
+import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Store, createSelector } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/Models/AppState';
 import { User } from 'src/app/Models/user.model';
 import { AuthComponent } from 'src/app/auth/auth.component';
-import { getUserProfile } from 'src/app/state/User/Actions';
+import { getUserProfile, logout } from 'src/app/state/User/Actions';
 import { UserState } from 'src/app/state/User/Reducer';
 import { selectUserProfile } from 'src/app/state/User/user.selector';
+import { NavbarContentComponent } from './navbar-content/navbar-content.component';
 
 @Component({
   selector: 'app-navbar',
@@ -20,6 +21,8 @@ export class NavbarComponent {
 
   isProfileMenuOpen:boolean =false;
   userProfile$!: Observable<any>
+
+  dialogRef?: MatDialogRef<AuthComponent>;
 
   selectUser = createSelector(
     (state: AppState) => state.user,
@@ -38,7 +41,7 @@ export class NavbarComponent {
   }
 
   openLoginModal(): void {
-    const dialogRef = this.dialog.open(AuthComponent, {
+    this.dialog.open(AuthComponent, {
       width: '400px',
       disableClose: false
     });
@@ -56,6 +59,9 @@ export class NavbarComponent {
  
     this.userProfile$.subscribe((userProfile: any) => {
       console.log("user profile ------ ", userProfile, userProfile?.firstName);
+      if(userProfile){
+        this.dialogRef?.close();
+      }
     });
    
   }
@@ -63,9 +69,44 @@ export class NavbarComponent {
 
 
   dispatchGetUserProfileAction=()=>{
-    console.log("dispatchGetUserProfileAction")
     this.store.dispatch(getUserProfile())
 
+  }
+
+  handleLogout=()=>{
+    console.log("logout success");
+    this.store.dispatch(logout());
+  }
+
+  open: boolean = false;
+  selectedTabIndex: number = 0;
+
+ 
+
+  setOpen(open: boolean): void {
+    this.open = open;
+  }
+
+  isNavbarContentOpen = false;
+
+
+  openNavbarContent() {
+    this.isNavbarContentOpen = true
+  }
+
+  closeNavbarContent() {
+    this.isNavbarContentOpen = false;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    const modalContainer = document.querySelector('.modal-container');
+    const openButton = document.querySelector('.open-button');
+
+    if (modalContainer && !openButton?.contains(event.target as Node) && !modalContainer.contains(event.target as Node) && this.isNavbarContentOpen) {
+      console.log("container ---------------------- ",this.isNavbarContentOpen)
+      this.closeNavbarContent();
+    }
   }
 
 }
