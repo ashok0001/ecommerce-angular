@@ -11,7 +11,10 @@ import { AdressCardComponent } from './components/adress-card/adress-card.compon
 import { OrderTrackerComponent } from './components/order-tracker/order-tracker.component';
 import { MatButtonModule } from '@angular/material/button';
 import { CapitalizePipe } from '../Pips/capitalize-pipe';
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MatDialogContent } from '@angular/material/dialog';
+import { NavbarContentComponent } from './components/navbar/navbar-content/navbar-content.component';
 
 
 @NgModule({
@@ -23,13 +26,19 @@ import { CapitalizePipe } from '../Pips/capitalize-pipe';
     CartItemComponent,
     AdressCardComponent,
     OrderTrackerComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    NavbarContentComponent,
+    
+   
   ],
   imports: [
     CommonModule,
     MatIconModule,
     MatDividerModule,
     MatButtonModule,
+    MatMenuModule,
+    MatTabsModule,
+    
   ],
   exports:[
     NavbarComponent,

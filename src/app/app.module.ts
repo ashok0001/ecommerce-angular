@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { userReducer } from './state/User/Reducer';
 import { UserEffects } from './state/User/user.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ProductEffects } from './state/Product/product.effect';
+import { productReducer } from './state/Product/product.reducer';
 
 @NgModule({
   declarations: [
@@ -27,8 +29,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     SharedModule,
     AuthModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({auth:authReducer,user:userReducer}),
-    EffectsModule.forRoot([AuthEffects,UserEffects]),
+    StoreModule.forRoot({auth:authReducer,user:userReducer,product:productReducer}),
+    EffectsModule.forRoot([AuthEffects,UserEffects,ProductEffects]),
     HttpClientModule,
     StoreDevtoolsModule.instrument(),
   ],

@@ -21,6 +21,7 @@ const routes: Routes = [
   {path:'payment-success',component:PaymentSuccessComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
+  { path: ':lavelOne/:lavelTwo/:lavelThree', component: ProductsComponent },
 ];
 
 @NgModule({

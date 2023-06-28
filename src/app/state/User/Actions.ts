@@ -10,3 +10,10 @@ export const getUserProfileFailure = createAction(
   '[User] Get User Profile Failure',
   props<{ error: any }>()
 );
+
+
+
+// logout 
+export const logout = createAction('[User] Logout');
+export const logoutSuccess = createAction('[User] Logout Success');
+export const logoutFailure = createAction('[User] Logout Failure', (error: any) => ({ error }));

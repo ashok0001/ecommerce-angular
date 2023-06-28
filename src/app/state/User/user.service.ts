@@ -12,6 +12,8 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
+  
+
   getUserProfile(): Observable<User | null> {
     const headers = new HttpHeaders()
     .set("Authorization",`Bearer ${localStorage.getItem("jwt")}`)
@@ -23,5 +25,13 @@ export class UserService {
         return of(null);
       })
     );
+  }
+
+
+
+
+
+  logout(): void {
+    localStorage.removeItem('jwt');
   }
 }
