@@ -88,10 +88,12 @@ export class NavbarComponent {
   }
 
   isNavbarContentOpen = false;
+  currentSection!:string
 
-
-  openNavbarContent() {
+  openNavbarContent(section:string) {
     this.isNavbarContentOpen = true
+    this.currentSection=section
+    console.log(section)
   }
 
   closeNavbarContent() {
@@ -101,9 +103,18 @@ export class NavbarComponent {
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
     const modalContainer = document.querySelector('.modal-container');
-    const openButton = document.querySelector('.open-button');
+    const openButtons = document.querySelectorAll('.open-button');
 
-    if (modalContainer && !openButton?.contains(event.target as Node) && !modalContainer.contains(event.target as Node) && this.isNavbarContentOpen) {
+    let clickedInsideButton = false;
+    
+
+    openButtons.forEach((button: Element) => {
+      if (button.contains(event.target as Node)) {
+        clickedInsideButton = true;
+      }
+    });
+
+    if (modalContainer && !clickedInsideButton && !modalContainer.contains(event.target as Node) && this.isNavbarContentOpen) {
       console.log("container ---------------------- ",this.isNavbarContentOpen)
       this.closeNavbarContent();
     }

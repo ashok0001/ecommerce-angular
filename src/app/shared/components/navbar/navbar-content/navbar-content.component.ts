@@ -1,7 +1,8 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener,Input } from '@angular/core';
 import { MatDialogConfig } from '@angular/material/dialog';
-import { womenCategory, womenCategorySection } from './navbarMenu';
+import { menCategory, womenCategory } from './navbarMenu';
 import { CategoryItem } from 'src/app/Models/Category';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar-content',
@@ -10,21 +11,18 @@ import { CategoryItem } from 'src/app/Models/Category';
 })
 export class NavbarContentComponent {
 
+  @Input()
+  selectedSection!: string;
+
+  category = this.selectedSection=="men"? menCategory:womenCategory;
+
+  ngOnInit() {
+    console.log(" input - ",this.selectedSection=="men",this.selectedSection=="women")
+  }
+  constructor(private router:Router){}
+
+  navigateToProducts=(path:String)=>{
+this.router.navigate([path])
+  }
   
-
-  womenSection=womenCategorySection;
-  category=womenCategory
-  items:CategoryItem[]= [
-    { name: 'Tops', id:"top",  },
-    { name: 'Dresses', id:"dress", },
-    { name: 'Pants', id: 'pants' },
-    { name: 'Lengha Choli', id: 'lengha_choli' },
-    { name: 'Sweaters', id: 'sweater' },
-    { name: 'T-Shirts', id: 't-shirt' },
-    { name: 'Jackets', id: 'jacket' },
-    { name: 'Gouns', id: 'gouns' },
-    { name: 'Sarees', id: 'saree' },
-    { name: 'Kurtas', id: 'kurtas' },
-  ]
-
 }

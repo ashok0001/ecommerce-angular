@@ -1,4 +1,4 @@
-<nav class="bg-[#69f0ae] text-gray-800">
+<nav class="fixed top-0 z-50 left-0 right-0 bg-[#69f0ae] text-gray-800">
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -72,17 +72,22 @@
             >
 
             <div>
-              <button mat-button [matMenuTriggerFor]="menu1">Menu</button>
-              <mat-menu class="full-width" #menu1="matMenu">
-                <button mat-menu-item>kurta</button>
-                <button mat-menu-item>shirt</button>
-              </mat-menu>
+              <button 
+                class="open-button" 
+                mat-button 
+                (click)="openNavbarContent('men')">
+                Men
+              </button>
             </div>
             
-            <div>
-              <button class="open-button" mat-button (click)="openNavbarContent()">Women</button>
+          <div>
+            <button 
+              class="open-button" 
+              mat-button (click)="openNavbarContent('women')">
+              Women
+            </button>
               
-            </div>
+          </div>
             
           </div>
           
@@ -213,6 +218,6 @@
 
   <!-- content -->
   <div class="modal-container">
-    <app-navbar-content  *ngIf="isNavbarContentOpen"/>
+    <app-navbar-content [selectedSection]="currentSection"  *ngIf="isNavbarContentOpen"/>
   </div>
 </nav>
