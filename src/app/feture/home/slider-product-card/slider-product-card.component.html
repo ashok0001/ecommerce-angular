@@ -1,11 +1,11 @@
 <div
 
-  class="cursor-pointer flex flex-col items-center bg-white rounded-lg shadow-lg overflow-hidden w-[15rem] mx-3 border border-slate-400"
+  class="box hover:scale-105 transition-all duration-500 cursor-pointer flex flex-col items-center rounded-lg shadow-lg overflow-hidden w-[15rem] mx-3"
 >
   <div class="h-[13rem] w-[10rem]">
     <img
       class="object-cover object-top w-full h-full"
-      [src]="product.image"
+      [src]="product.imageUrl"
       alt=""
     />
   </div>
@@ -13,7 +13,7 @@
   <div class="p-4 ">
     <h3 class=" font-medium text-gray-900 text-sm">
       <!-- {product?.brand || product?.title} -->
-      {{product.title2 | slice:0:50}}...
+      {{product.brand}}
     </h3>
     <p class="mt-2 text-sm text-gray-500">
       <!-- {product?.title} -->

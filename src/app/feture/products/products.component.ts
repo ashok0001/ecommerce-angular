@@ -66,6 +66,7 @@ export class ProductsComponent {
   
     this.store.dispatch(findProductsByCategoryRequest({reqData}))
     console.log(this.store.select((state: AppState) => state.product))
+    console.log("activate route ",this.route.url)
   });
 
   this.fetchedProducts$ = this.store.select((state: AppState) => state.product.products.content);

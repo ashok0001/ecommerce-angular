@@ -17,11 +17,12 @@ const routes: Routes = [
   {path:'cart',component:CartComponent},
   {path:'product-details/:id',component:ProductDetailsComponent},
   {path:'checkout',component:CheckoutComponent},
-  {path:'checkout/payment',component:PaymentComponent},
+  {path:'checkout/payment/:id',component:PaymentComponent},
   {path:'payment-success',component:PaymentSuccessComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   { path: ':lavelOne/:lavelTwo/:lavelThree', component: ProductsComponent },
+  { path: 'order-summery', component: ProductsComponent },
 ];
 
 @NgModule({

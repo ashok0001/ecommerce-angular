@@ -24,7 +24,7 @@ import { BarRatingModule } from 'ngx-bar-rating';
 import {MatDividerModule} from '@angular/material/divider';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AdressFormComponent } from './checkout/adress-form/adress-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaymentComponent } from './payment/payment.component';
 import { PaymentSuccessComponent } from './payment-success/payment-success.component';
 
@@ -60,7 +60,8 @@ import { PaymentSuccessComponent } from './payment-success/payment-success.compo
     MatDividerModule,
     MatFormFieldModule, 
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
   ],
   exports: [FetureComponent],
 })

@@ -1,16 +1,16 @@
-<div class="space-y-5 px-5 lg:px-20">
+<div class="mt-24 space-y-5 px-5 lg:px-20">
+  <ng-container *ngIf="order$ | async as order">
     <div class="p-5 shadow-lg rounded-md box my-5">
-        <app-adress-card />
+        <app-adress-card [address]="order.shippingAddress"/>
     </div>
   <div class="grid grid-cols-1 gap-5 lg:grid-cols-3 relative justify-between py-5">
     <div class="col-span-2 ">
         
       <div class="space-y-3 box rounded-md">
-        <div *ngFor="let product of products">
-            <app-cart-item/>
+          <div *ngFor="let product of order.orderItems">
+            <app-cart-item [product]="product" />
             <mat-divider></mat-divider>
           </div>
-        
       </div>
     </div>
     <div class="col-span-1 sticky top-0 h-[100vh] mt-5 lg:mt-0 lg:ml-5">
@@ -21,11 +21,11 @@
         <div class="space-y-5 font-semibold mb-5">
           <div class="flex justify-between pt-3">
             <span>Price 3 item</span>
-            <span>₹59000</span>
+            <span>₹{{order.totalPrice}}</span>
           </div>
           <div class="flex justify-between">
             <span>Discount</span>
-            <span class="text-green-700">-₹10000</span>
+            <span class="text-green-700">-₹{{order.discounte}}</span>
           </div>
           <div class="flex justify-between">
             <span>Delivery Charges</span>
@@ -34,14 +34,14 @@
           <mat-divider></mat-divider>
           <div class="flex justify-between font-bold text-lg">
             <span>Total Amount</span>
-            <span class="text-green-700">₹49999</span>
+            <span class="text-green-700">₹{{order.totalDiscountedPrice}}</span>
           </div>
         </div>
 
         <button
         class="w-full"
         style="padding: 1.6rem"
-        type="submit"
+        (click)="redirectToPaymentPage()"
         mat-raised-button
         color="accent"
       >
@@ -50,6 +50,6 @@
       </div>
     </div>
   </div>
-
+</ng-container>
   
 </div>

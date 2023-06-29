@@ -17,6 +17,11 @@ import { UserEffects } from './state/User/user.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ProductEffects } from './state/Product/product.effect';
 import { productReducer } from './state/Product/product.reducer';
+import { CartEffects } from './state/Cart/cart.effect';
+import { cartReducer } from './state/Cart/cart.reducer';
+import { OrderEffects } from './state/Order/order.effects';
+import { orderReducer } from './state/Order/order.reducer';
+import { PaymentEffects } from './state/Payment/payment.effects';
 
 @NgModule({
   declarations: [
@@ -29,8 +34,8 @@ import { productReducer } from './state/Product/product.reducer';
     SharedModule,
     AuthModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({auth:authReducer,user:userReducer,product:productReducer}),
-    EffectsModule.forRoot([AuthEffects,UserEffects,ProductEffects]),
+    StoreModule.forRoot({auth:authReducer,user:userReducer,product:productReducer,cart:cartReducer,order:orderReducer}),
+    EffectsModule.forRoot([AuthEffects,UserEffects,ProductEffects,CartEffects,OrderEffects,PaymentEffects]),
     HttpClientModule,
     StoreDevtoolsModule.instrument(),
   ],
