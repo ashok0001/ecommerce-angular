@@ -4,15 +4,13 @@
       class="rounded-md shadow-md h-[32.2rem] overflow-y-scroll hide-scrollbar box py-5"
     >
       <!-- Iterate over addresses -->
-      <div class="p-5 py-7 border-b cursor-pointer">
-        <div *ngFor="let item of adresses" class="py-2">
+      <div class="p-5 py-7 cursor-pointer">
+        <div *ngFor="let item of adresses; let last=last" class="py-2">
              <app-adress-card />
-             <mat-divider></mat-divider>
+             <mat-divider *ngIf="!last"></mat-divider>
         </div>
        
-        <!-- Display button if address is selected -->
-
-        <!-- <button mat-raised-button color="accent">Deliver Here</button> -->
+        
       </div>
     </div>
   </div>
@@ -49,7 +47,7 @@
               <mat-label>Address</mat-label>
               <textarea
                 matInput
-                formControlName="address"
+                formControlName="streetAddress"
                 placeholder="Address"
                 autocomplete="shipping address"
                 rows="4"
@@ -85,7 +83,7 @@
               <mat-label>Zip / Postal code</mat-label>
               <input
                 matInput
-                formControlName="zip"
+                formControlName="zipCode"
                 placeholder="Zip / Postal code"
                 autocomplete="shipping postal-code"
                 required
@@ -97,7 +95,7 @@
               <mat-label>Phone Number</mat-label>
               <input
                 matInput
-                formControlName="phoneNumber"
+                formControlName="mobile"
                 placeholder="Phone Number"
                 autocomplete="tel"
                 required
