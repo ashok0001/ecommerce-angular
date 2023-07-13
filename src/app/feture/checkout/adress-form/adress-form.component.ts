@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/Models/AppState';
 import { createOrderRequest } from 'src/app/state/Order/Actions';
 
@@ -21,9 +21,14 @@ export class AdressFormComponent {
     mobile: ['', Validators.required]
   });
 
-  adresses=[1,1,1,1]
+  adresses:any;
 
-  constructor(private formBuilder: FormBuilder, private router:Router, private store:Store<AppState>) {}
+  constructor(private formBuilder: FormBuilder, private router:Router, private store:Store<AppState>) {
+    this.store.pipe(select(state=>state)).subscribe(store=>{
+      console.log("address ",store)
+      this.adresses=store.user.userProfile.addresses
+    })
+  }
 
   // ngOnInit() {
    

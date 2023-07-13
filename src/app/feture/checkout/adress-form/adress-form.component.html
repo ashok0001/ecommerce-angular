@@ -6,7 +6,7 @@
       <!-- Iterate over addresses -->
       <div class="p-5 py-7 cursor-pointer">
         <div *ngFor="let item of adresses; let last=last" class="py-2">
-             <app-adress-card />
+             <app-adress-card [address]="item" />
              <mat-divider *ngIf="!last"></mat-divider>
         </div>
        
