@@ -1,13 +1,14 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { BASE_API_URL } from 'src/app/config/api';
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
   constructor(private http: HttpClient) {}
 
-  API_BASE_URL = 'http://localhost:5454';
+  API_BASE_URL = BASE_API_URL;
   private getHeaders(): HttpHeaders {
     const token = localStorage.getItem('jwt'); // Get JWT token from localStorage
 

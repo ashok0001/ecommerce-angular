@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { productdata } from 'src/productsData';
 import { filters, singleFilter } from './FilterData';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { AuthState } from 'src/app/state/Auth/auth.reducer';
@@ -26,15 +26,37 @@ export class ProductsComponent {
   lavelTwo!: string | null;
   lavelThree!: string | null;
   fetchedProducts$: Observable<any> = new Observable<any>();
-
+  
   
 
 
 
   ngOnInit() {
-    this.lavelOne = this.route.snapshot.paramMap.get('lavelOne');
-    this.lavelTwo = this.route.snapshot.paramMap.get('lavelTwo');
+    // const updatedReqData = { ...this.reqData,category:this.lavelThree };
+    let reqData = {
+      category: this.route.snapshot.paramMap.get('lavelThree'),
+      colors: [],
+      sizes:  [],
+      minPrice:  0,
+      maxPrice: 10000,
+      minDiscount: 0,
+      sort: "price_low",
+      pageNumber: 1,
+      pageSize: 10,
+      stock: null,
+    };
+    this.store.dispatch(findProductsByCategoryRequest({reqData}))
     this.lavelThree = this.route.snapshot.paramMap.get('lavelThree');
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        // Get the updated URL parameters
+        this.lavelOne = this.route.snapshot.paramMap.get('lavelOne');
+        this.lavelTwo = this.route.snapshot.paramMap.get('lavelTwo');
+        this.lavelThree = this.route.snapshot.paramMap.get('lavelThree');
+        this.store.dispatch(findProductsByCategoryRequest({reqData}))
+      }
+      console.log("reqData -",this.lavelThree)
+    });
 
     this.route.queryParams.subscribe(params => {
       const color = params['color']; // Retrieves the value of the 'color' parameter
@@ -45,26 +67,10 @@ export class ProductsComponent {
   
       const minPrice=0
       const maxPrice=9999
-      // console.log('Color:', color);
-      // console.log('Size:', size);
-      // console.log('Price:', price);
-      // console.log('Discount:', discount);
-      // console.log('Stock:', stock);
 
-      const   reqData = {
-      category: this.lavelThree,
-      colors: color || [],
-      sizes: size || [],
-      minPrice: minPrice || 0,
-      maxPrice: maxPrice || 10000,
-      minDiscount: discount || 0,
-      sort: "price_low",
-      pageNumber: 1,
-      pageSize: 10,
-      stock: stock,
-    };
+
   
-    this.store.dispatch(findProductsByCategoryRequest({reqData}))
+    // this.store.dispatch(findProductsByCategoryRequest({reqData:updatedReqData}))
     console.log(this.store.select((state: AppState) => state.product))
     console.log("activate route ",this.route.url)
   });
@@ -74,6 +80,9 @@ export class ProductsComponent {
   this.fetchedProducts$.subscribe((products: any) => {
     console.log("Products from store - ", products.content);
   });
+
+
+  // this.store.dispatch(findProductsByCategoryRequest({reqData:updatedReqData}))
   
   }
 

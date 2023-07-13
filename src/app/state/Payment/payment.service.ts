@@ -9,12 +9,13 @@ import {
   updatePaymentFailure,
   updatePaymentRequest,
 } from './Actions';
+import { BASE_API_URL } from 'src/app/config/api';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PaymentService {
-  private API_BASE_URL = 'http://localhost:5454'; // Replace with your API base URL
+  private API_BASE_URL = BASE_API_URL; // Replace with your API base URL
 
   constructor(
     private http: HttpClient,

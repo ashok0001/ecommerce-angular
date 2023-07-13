@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, catchError, map } from 'rxjs';
+import { BASE_API_URL } from 'src/app/config/api';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class OrderService {
 
   
 
-  private API_BASE_URL = 'http://localhost:5454';
+  private API_BASE_URL = BASE_API_URL;
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
 
