@@ -19,7 +19,7 @@ import { ProductEffects } from './state/Product/product.effect';
 import { productReducer } from './state/Product/product.reducer';
 import { CartEffects } from './state/Cart/cart.effect';
 import { cartReducer } from './state/Cart/cart.reducer';
-import { OrderEffects } from './state/Order/order.effects';
+// import { OrderEffects } from './state/Order/order.effects';
 import { orderReducer } from './state/Order/order.reducer';
 import { PaymentEffects } from './state/Payment/payment.effects';
 
@@ -35,7 +35,7 @@ import { PaymentEffects } from './state/Payment/payment.effects';
     AuthModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({auth:authReducer,user:userReducer,product:productReducer,cart:cartReducer,order:orderReducer}),
-    EffectsModule.forRoot([AuthEffects,UserEffects,ProductEffects,CartEffects,OrderEffects,PaymentEffects]),
+    EffectsModule.forRoot([AuthEffects,UserEffects,ProductEffects,CartEffects,PaymentEffects]),
     HttpClientModule,
     StoreDevtoolsModule.instrument(),
   ],

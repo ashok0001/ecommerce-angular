@@ -9,6 +9,8 @@ import { PaymentComponent } from './feture/payment/payment.component';
 import { PaymentSuccessComponent } from './feture/payment-success/payment-success.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { OrderComponent } from './feture/order/order.component';
+import { OrderDetailsComponent } from './feture/order-details/order-details.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -23,6 +25,8 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   { path: ':lavelOne/:lavelTwo/:lavelThree', component: ProductsComponent },
   { path: 'order-summery', component: ProductsComponent },
+  { path: 'account/orders', component: OrderComponent },
+  { path: 'order/:orderId', component: OrderDetailsComponent },
 ];
 
 @NgModule({

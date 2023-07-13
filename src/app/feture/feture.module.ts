@@ -27,6 +27,9 @@ import { AdressFormComponent } from './checkout/adress-form/adress-form.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaymentComponent } from './payment/payment.component';
 import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+import { OrderComponent } from './order/order.component';
+import { OrderCardComponent } from './order/order-card/order-card.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 
 // import {Ngtemp}
 
@@ -45,6 +48,9 @@ import { PaymentSuccessComponent } from './payment-success/payment-success.compo
     AdressFormComponent,
     PaymentComponent,
     PaymentSuccessComponent,
+    OrderComponent,
+    OrderCardComponent,
+    OrderDetailsComponent,
   ],
   imports: [
     CommonModule,

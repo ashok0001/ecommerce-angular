@@ -29,8 +29,8 @@ export const orderReducer = createReducer(
   on(OrderActions.getOrderHistoryRequest, (state) => ({ ...state, loading: true, error: null })),
   on(OrderActions.getOrderHistorySuccess, (state, { orders }) => ({ ...state, loading: false, orders })),
   on(OrderActions.getOrderHistoryFailure, (state, { error }) => ({ ...state, loading: false, error }))
+
+  // on(bookSeatsSuccess,(state,{bookedSeats})=>({...state,bookedSeats,loading:false, error:null})),
 );
 
-export function reducer(state: OrderState | undefined, action: Action): OrderState {
-  return orderReducer(state, action);
-}
+
