@@ -3,11 +3,11 @@
     <div class="space-y-10">
         <div class="box px-10">
             <h1 class="text-lg font-semibold py-5">Shipping Address</h1>
-            <app-adress-card [address]="order.shippingAddress"/>
+            <app-adress-card [address]="order?.shippingAddress"/>
         </div>
 
         <div class="space-y-6 mt-20">
-            <div *ngFor="let orderItem of order.orderItems">
+            <div *ngFor="let orderItem of order?.orderItems">
             <app-order-card [orderItem]="orderItem" />
         </div>
         </div>
