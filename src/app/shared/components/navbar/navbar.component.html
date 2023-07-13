@@ -217,7 +217,10 @@
   </div>
 
   <!-- content -->
-  <div class="modal-container">
-    <app-navbar-content [selectedSection]="currentSection"  *ngIf="isNavbarContentOpen"/>
+  <div >
+    <div *ngIf="isNavbarContentOpen"  class="modal-container">
+    <app-navbar-content [selectedSection]="currentSection"/>
+
+    </div>
   </div>
 </nav>

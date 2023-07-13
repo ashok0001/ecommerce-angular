@@ -92,8 +92,8 @@ export class NavbarComponent {
 
   openNavbarContent(section:string) {
     this.isNavbarContentOpen = true
-    this.currentSection=section
-    console.log(section)
+  this.currentSection=section;
+  console.log("currentSection section ",this.currentSection)
   }
 
   closeNavbarContent() {
@@ -114,9 +114,10 @@ export class NavbarComponent {
       }
     });
 
-    if (modalContainer && !clickedInsideButton && !modalContainer.contains(event.target as Node) && this.isNavbarContentOpen) {
+    if (modalContainer && !clickedInsideButton  && this.isNavbarContentOpen) {
       console.log("container ---------------------- ",this.isNavbarContentOpen)
       this.closeNavbarContent();
+      
     }
   }
 

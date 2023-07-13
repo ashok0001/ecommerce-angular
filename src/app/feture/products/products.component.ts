@@ -7,7 +7,7 @@ import { Store } from '@ngrx/store';
 import { AuthState } from 'src/app/state/Auth/auth.reducer';
 import { findProductsByCategoryRequest } from 'src/app/state/Product/Actions';
 import { AppState } from 'src/app/Models/AppState';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 
 @Component({
@@ -18,6 +18,9 @@ import { Observable } from 'rxjs';
   // imports: [],
 })
 export class ProductsComponent {
+
+  private routerEventsSubscription: Subscription | undefined;
+  private routeQueryParamsSubscription: Subscription | undefined;
 
   products:any[]=[]
   filterItems:any[] | undefined
@@ -33,7 +36,7 @@ export class ProductsComponent {
 
   ngOnInit() {
     // const updatedReqData = { ...this.reqData,category:this.lavelThree };
-    let reqData = {
+    var reqData = {
       category: this.route.snapshot.paramMap.get('lavelThree'),
       colors: [],
       sizes:  [],
@@ -46,19 +49,29 @@ export class ProductsComponent {
       stock: null,
     };
     this.store.dispatch(findProductsByCategoryRequest({reqData}))
-    this.lavelThree = this.route.snapshot.paramMap.get('lavelThree');
+
+    this.routerEventsSubscription=this.activatedRoute.paramMap.subscribe(params=>{
+      
+      const updatedReqData = Object.assign({}, reqData, {
+        category: params.get("lavelThree"),
+      });
+      this.store.dispatch(findProductsByCategoryRequest({reqData:updatedReqData}))
+      console.log("reqData - change",this.lavelThree,updatedReqData)
+    })
+    
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         // Get the updated URL parameters
         this.lavelOne = this.route.snapshot.paramMap.get('lavelOne');
         this.lavelTwo = this.route.snapshot.paramMap.get('lavelTwo');
         this.lavelThree = this.route.snapshot.paramMap.get('lavelThree');
-        this.store.dispatch(findProductsByCategoryRequest({reqData}))
+
+        
       }
-      console.log("reqData -",this.lavelThree)
+     
     });
 
-    this.route.queryParams.subscribe(params => {
+    this.routeQueryParamsSubscription= this.route.queryParams.subscribe(params => {
       const color = params['color']; // Retrieves the value of the 'color' parameter
       const size = params['size']; // Retrieves the value of the 'size' parameter
       const price = params['price']; // Retrieves the value of the 'price' parameter
@@ -84,6 +97,17 @@ export class ProductsComponent {
 
   // this.store.dispatch(findProductsByCategoryRequest({reqData:updatedReqData}))
   
+  }
+
+  ngOnDestroy() {
+    // Unsubscribe from subscriptions to avoid memory leaks
+    if (this.routerEventsSubscription) {
+      this.routerEventsSubscription.unsubscribe();
+    }
+
+    if (this.routeQueryParamsSubscription) {
+      this.routeQueryParamsSubscription.unsubscribe();
+    }
   }
 
   constructor(  private activatedRoute: ActivatedRoute,
